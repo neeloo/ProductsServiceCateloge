@@ -1,4 +1,4 @@
-package com.Neeloo.ProductServiceCateloge;
+package com.Neeloo.ProductsServiceCateloge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

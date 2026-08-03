@@ -1,4 +1,4 @@
-package com.Neeloo.ProductServiceCateloge.models;
+package com.Neeloo.ProductsServiceCateloge.models;
 
 
 import jakarta.persistence.GeneratedValue;

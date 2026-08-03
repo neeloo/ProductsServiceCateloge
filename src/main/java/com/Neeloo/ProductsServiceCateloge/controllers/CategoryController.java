@@ -1,4 +1,4 @@
-package com.Neeloo.ProductServiceCateloge.controllers;
+package com.Neeloo.ProductsServiceCateloge.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

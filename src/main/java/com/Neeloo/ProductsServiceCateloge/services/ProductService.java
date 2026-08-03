@@ -1,4 +1,4 @@
-package com.Neeloo.ProductServiceCateloge.services;
+package com.Neeloo.ProductsServiceCateloge.services;
 
 import org.springframework.stereotype.Service;
 

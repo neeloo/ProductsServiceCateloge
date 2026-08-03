@@ -1,4 +1,4 @@
-package com.Neeloo.ProductServiceCateloge.repositories;
+package com.Neeloo.ProductsServiceCateloge.repositories;
 
 
 import org.springframework.stereotype.Repository;
