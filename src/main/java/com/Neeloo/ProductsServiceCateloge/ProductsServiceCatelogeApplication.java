@@ -9,7 +9,7 @@ public class ProductsServiceCatelogeApplication {
 	public static void main(String[] args) {
 
         SpringApplication.run(ProductsServiceCatelogeApplication.class, args);
-        System.out.println("Hello");
+        //System.out.println("Hello");
 	}
 
 }
