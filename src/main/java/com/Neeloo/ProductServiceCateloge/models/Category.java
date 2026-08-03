@@ -1,4 +1,4 @@
 package com.Neeloo.ProductServiceCateloge.models;
 
-public class Category {
+public class Category extends  BaseModel{
 }
