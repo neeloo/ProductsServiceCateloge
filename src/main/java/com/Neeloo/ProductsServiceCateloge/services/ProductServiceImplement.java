@@ -1,11 +1,18 @@
 package com.Neeloo.ProductsServiceCateloge.services;
 
+import com.Neeloo.ProductsServiceCateloge.models.Category;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import com.Neeloo.ProductsServiceCateloge.repositories.CategoryRepository;
 import com.Neeloo.ProductsServiceCateloge.repositories.ProductRepository;
+import org.springframework.context.annotation.Primary;
+import org.springframework.security.core.parameters.P;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
+@Primary
 public class ProductServiceImplement implements  ProductService {
 
     private final ProductRepository productRepository;
@@ -18,12 +25,20 @@ public class ProductServiceImplement implements  ProductService {
 
     @Override
     public Product getsingleProduct(Long id) {
-        return null;
+        Optional<Product>productOptional =
+                productRepository.findById(id);
+
+        if(productOptional.isEmpty()){
+            throw  new RuntimeException("product with id :"+ id + "doesn't exit");
+        }
+        Product product = productOptional.get();
+
+        return product;
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+        return null;
     }
 
     @Override
@@ -38,7 +53,16 @@ public class ProductServiceImplement implements  ProductService {
 
     @Override
     public Product addNewProduct(Product product) {
-        return null;
+
+        Optional<Category>categoryOptional =
+                categoryRepository.findByName(product.getCategory().getName());
+
+        if(categoryOptional.isEmpty()){
+
+        }else {
+            product.setCategory(categoryOptional.get());
+        }
+        return productRepository.save(product);
     }
 
     @Override
