@@ -5,6 +5,8 @@ import com.Neeloo.ProductsServiceCateloge.dtos.FakeStoreProductDto;
 import com.Neeloo.ProductsServiceCateloge.models.Category;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,7 +38,17 @@ public class FakeStoreProductService implements  ProductService {
 
     @Override
     public Product getsingleProduct(Long id) {
-        return null;
+        ResponseEntity<FakeStoreProductDto>productDto = restTemplate.getForEntity(
+                "https://fakestoreapi.com/products/" + id ,
+                FakeStoreProductDto.class
+        );
+        if(productDto.getStatusCode() != HttpStatusCode.valueOf(200)){
+
+        }
+        if(productDto == null){
+            throw  new RuntimeException("product id"+ id + "does not exit");
+        }
+        return convertFakeStorePRoductDtoProduct(productDto.getBody());
     }
 
     @Override
