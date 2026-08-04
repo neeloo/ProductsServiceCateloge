@@ -25,8 +25,7 @@ public class ProductServiceImplement implements  ProductService {
 
     @Override
     public Product getsingleProduct(Long id) {
-        Optional<Product>productOptional =
-                productRepository.findById(id);
+        Optional<Product>productOptional = productRepository.findById(id);
 
         if(productOptional.isEmpty()){
             throw  new RuntimeException("product with id :"+ id + "doesn't exit");
