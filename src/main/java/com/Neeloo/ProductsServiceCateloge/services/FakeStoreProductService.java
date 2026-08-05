@@ -5,9 +5,12 @@ import com.Neeloo.ProductsServiceCateloge.dtos.FakeStoreProductDto;
 import com.Neeloo.ProductsServiceCateloge.models.Category;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpMessageConverterExtractor;
+import org.springframework.web.client.RequestCallback;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -74,7 +77,19 @@ public class FakeStoreProductService implements  ProductService {
 
     @Override
     public Product replaceProduct(Long id, Product product) {
-        return null;
+        FakeStoreProductDto dto = new FakeStoreProductDto();
+        dto.setTitle(product.getTitle());
+        dto.setPrice(product.getPrice());
+        dto.setImage(product.getImageUrl());
+        dto.setDescription(product.getDescription());
+
+        RequestCallback requestCallback = restTemplate.httpEntityCallback(dto , FakeStoreProductDto.class);
+        HttpMessageConverterExtractor<FakeStoreProductDto> responce =
+                new HttpMessageConverterExtractor<>(FakeStoreProductDto.class , restTemplate.getMessageConverters());
+
+        FakeStoreProductDto fakeStoreProductDto = restTemplate.execute("https://fakestoreapi.com/products/" + id , HttpMethod.PUT ,  requestCallback,responce);
+
+        return convertFakeStorePRoductDtoProduct(fakeStoreProductDto);
     }
 
     @Override
