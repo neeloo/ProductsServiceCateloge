@@ -42,7 +42,6 @@ public class ProductController {
         return new ResponseEntity<>(
                 productService.getsingleProduct(id),HttpStatus.OK
         );
-
     }
 
     @PostMapping()
