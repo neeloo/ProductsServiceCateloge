@@ -43,7 +43,6 @@ public class ProductController {
                 productService.getsingleProduct(id),HttpStatus.OK
         );
     }
-
     @PostMapping()
     public Product addProducts(@RequestBody Product product){
         return  productService.addNewProduct(product);
