@@ -4,7 +4,6 @@ package com.Neeloo.ProductsServiceCateloge.controllers;
 import com.Neeloo.ProductsServiceCateloge.commons.AuthenticationCommons;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import com.Neeloo.ProductsServiceCateloge.services.ProductService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
