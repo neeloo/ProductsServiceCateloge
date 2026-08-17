@@ -5,6 +5,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 public interface ProductService {
 
     Product getsingleProduct(Long id);
