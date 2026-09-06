@@ -1,6 +1,4 @@
 package com.Neeloo.ProductsServiceCateloge.controllers;
-
-
 import com.Neeloo.ProductsServiceCateloge.commons.AuthenticationCommons;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import com.Neeloo.ProductsServiceCateloge.services.ProductService;
