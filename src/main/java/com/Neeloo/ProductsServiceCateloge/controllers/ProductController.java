@@ -36,9 +36,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public  ResponseEntity<Product> getSingleProduct(@PathVariable("id") Long id){
-        return new ResponseEntity<>(
-                productService.getsingleProduct(id),HttpStatus.OK
-        );
+        return new ResponseEntity<>(productService.getsingleProduct(id),HttpStatus.OK);
     }
     @PostMapping()
     public Product addProducts(@RequestBody Product product){
