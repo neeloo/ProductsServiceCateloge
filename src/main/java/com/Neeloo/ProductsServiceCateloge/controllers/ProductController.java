@@ -1,4 +1,5 @@
 package com.Neeloo.ProductsServiceCateloge.controllers;
+import com.Neeloo.ProductsServiceCateloge.commons.AuthenticationCommons;
 import com.Neeloo.ProductsServiceCateloge.models.Product;
 import com.Neeloo.ProductsServiceCateloge.services.ProductService;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.web.SecurityFilterChain;
 
 
 @RestController
@@ -16,7 +18,7 @@ public class ProductController {
     private ProductService productService;
     private RestTemplate restTemplate;
 
-    //private AuthenticationCommons authenticationCommons;
+    private AuthenticationCommons authenticationCommons;
 
     @GetMapping()
     public ResponseEntity<List<Product>> getAllProduct(){
